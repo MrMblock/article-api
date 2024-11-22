@@ -30,6 +30,16 @@ pool.query(`
     .catch(err => console.error('Erreur lors de la création de la table:', err));
 
 // Route GET pour récuperer les articles
+app.get('/', async (req, res) => {
+    res.send(`
+        <div style="text-align: center;">
+            <h1>API Articles</h1>
+            <img src="https://i.pinimg.com/originals/14/fc/7d/14fc7d1120735dd8e2064a38913ea339.gif" alt="Welcome Image" style="width: 300px; height: auto; margin-top: 20px;">
+        </div>
+    `);
+});
+
+// Route GET pour récuperer les articles
 app.get('/articles', async (req, res) => {
     try {
         const result = await pool.query('SELECT * from articles')
